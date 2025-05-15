@@ -1,0 +1,120 @@
+
+### Post an order
+POST http://localhost:3000/order
+Content-Type: application/json
+
+{
+  "userId": "644f1e58f9f8b915d5c7d9a1",
+  "items": [
+  {
+    "productId": "644f1e58f9f8b915d5c7d345",
+    "quantity": 5,
+    "unitPrice": 499,
+    "selectedSize": "s",
+    "selectedColor": "black",
+    "selectedImage": "test"
+  },
+  {
+    "productId": "644f1e58f9f8b915d5c7d123",
+    "quantity": 5,
+    "unitPrice": 499,
+    "selectedSize": "s",
+    "selectedColor": "black",
+    "selectedImage": "test"
+  }
+],
+  "total": 40
+}
+
+
+
+### Get a specific order (by object ID)
+GET http://localhost:3000/order/682475b0154cf05e03ff7bfa
+
+### Patch order'status (by object ID)
+PATCH  http://localhost:6000/order/681b33538d95bd1c8e098fc4
+Content-Type: application/json
+
+{
+  "status":"paid"
+}
+
+###
+POST http://localhost:3000/order/6821de629f107d6ad0c88355
+Content-Type: application/json
+
+{
+  "items": [
+          {
+          "cartId":"6821de7c9f107d6ad0c88358",
+          "productId": "681dd91a655b54e321a84670",
+          "selectedSize": "one-size",
+          "selectedColor": "black",
+          "selectedImage": "src/assets/images/Products/cup/custom/custom-cup-black-front.png",
+          "quantity": 2,
+          "unitPrice": 399,
+          "totalPrice":798,
+          "addedAt": "2025-05-13T10:14:23.997+00:00"
+      },
+      {
+          "cartId":"6821de7c9f107d6ad0c88358",
+          "productId": "681dd855655b54e321a84668",
+          "selectedSize": "one-size",
+          "selectedColor": "black",
+          "selectedImage": "src/assets/images/Products/bag/just/just-bag-black-front.png",
+          "quantity": 2,
+          "unitPrice": 299,
+          "totalPrice":598,
+          "addedAt": "2025-05-13T10:14:53.699+00:00"
+      },
+      {
+          "cartId":"6821de7c9f107d6ad0c88358",
+          "productId": "681dd07a655b54e321a84648",
+          "selectedSize": "m",
+          "selectedColor": "black",
+          "selectedImage": "src/assets/images/Products/shirt/prove/prove-shirt-black-front.png",
+          "quantity": 1,
+          "unitPrice": 499,
+          "totalPrice":499,
+          "addedAt": "2025-05-13T10:15:32.724+00:00"
+      },
+      {
+          "cartId":"6821de7c9f107d6ad0c88358",
+          "productId": "681dd534655b54e321a84654",
+          "selectedSize": "s",
+          "selectedColor": "black",
+          "selectedImage": "src/assets/images/Products/shirt/espresso/espresso-shirt-black-front.png",
+          "quantity": 2,
+          "unitPrice": 499,
+          "totalPrice":998,
+          "addedAt": "2025-05-13T10:16:12.180+00:00"
+      }
+  ],
+  "shippingMethod": "fastest",
+  "total": 2893,
+  "address": {
+    "firstName": "MOCKJET",
+    "lastName": "MOCKJET",
+    "address": "MOCKJET",
+    "specific": "MOCKJET",
+    "district": "MOCKJET",
+    "subDistrict": "MOCKJET",
+    "city": "MOCKJET",
+    "postal": "10900",
+    "email": "MOCKJET@mockmail.com",
+    "phone": "0123456789",
+    "smsPromotion": false,
+    "emailPromotion": false,
+    "shipping": "standard"
+},
+  "payment": {
+    "firstName": "MOCKJET",
+    "lastName": "MOCKJET",
+    "cardNumber": "1111 1111 1111 1111",
+    "exp": "11/11",
+    "cvv": "1111"
+}
+}
+
+
+

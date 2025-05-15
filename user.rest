@@ -1,0 +1,53 @@
+### REGISTER
+POST http://localhost:3000/user/signUp
+Content-Type: application/json
+
+{
+  "firstName":   "MOCK3",
+  "email":       "MOCK3@example.com",
+  "password":    "12345",
+  "phoneNumber": "1234567890",
+  "userName":    "MOCK3",
+  "lastName":    "MOCK3",
+  "addresses": [
+    {
+      "firstName":   "MOCK3",
+      "lastName": "MOCK3",
+      "address":     "62/1 Soi Ekkachai 116",
+      "specific":    "My house",
+      "subDistrict": "Bang Bon Nuea",
+      "district":    "Bang Bon",
+      "city":        "Bangkok",
+      "postal":      "10150",
+      "email": "MOCK3@example.com",
+      "phone": "1234567890",
+      "isDefault":   true
+    }
+  ]
+}
+
+### SIGN-IN
+POST http://localhost:6000/user/sign-in
+Content-Type: application/json
+
+{
+  "email": "sch@example.com",
+  "password": "234567"
+}
+
+
+### Add New Address
+
+POST http://localhost:6000/user/new-address
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFjNDg3YzgyZGZkM2VkZTEwNzI3ZTMiLCJlbWFpbCI6InRvbi0xN0BleGFtcGxlLmNvbSIsImlhdCI6MTc0NjY5MzMwNCwiZXhwIjoxNzQ3Mjk4MTA0fQ.S7VcpGZy0_heKNrLtg8O5U-UDp6aOHYtp--Rc_gCoTw
+Content-Type: application/json
+
+{
+  "address": "5678",
+  "specific": "Apartment 4",
+  "subDistrict": "XYZ",
+  "district": "ZZ",
+  "city": "Metropolis",
+  "postal": "14000",
+  "isDefault": false
+}

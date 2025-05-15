@@ -1,0 +1,21 @@
+### create a payment
+POST http://localhost:6000/payment
+Content-type: application/json
+
+{
+    "orderId": "681b33538d95bd1c8e098fc4",
+    "amount": 2000 ,
+    "method": "prompPay",
+    "status": "completed",
+    "cardName": "Bass",
+    "cardNumber": "1234567890",
+    "cvv": "123"
+}
+
+### Update status
+PATCH http://localhost:6000/payment/681c8453bdff2d467668a6b2
+Content-type: application/json
+
+{
+    "status": "pending"
+}

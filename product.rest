@@ -1,0 +1,45 @@
+###
+POST http://localhost:6000/product
+Content-Type: application/json
+
+# {
+#     "styleName": "Empty",
+#     "productType": "shirt",
+#     "description": "Your blank canvas awaits. Make it uniquely yours.",
+#     "price": 499,
+#     "sizes": ["s", "m", "l"],
+#     "colors": ["black", "blue", "gray", "white"],
+#     "images": ["src/assets/images/Products/shirt/empty/empty-shirt-black-front.png",
+#             "src/assets/images/Products/shirt/empty/empty-shirt-blue-front.png",
+#             "src/assets/images/Products/shirt/empty/empty-shirt-gray-front.png",
+#             "src/assets/images/Products/shirt/empty/empty-shirt-white-front.png"
+#             ]
+# }
+
+# {
+#     "styleName": "Empty",
+#     "productType": "bag",
+#     "description": "Your blank canvas awaits. Make it uniquely yours.",
+#     "price": 299,
+#     "sizes": ["one size"],
+#     "colors": ["black", "blue", "gray", "white"],
+#     "images": ["src/assets/images/Products/bag/empty/empty-bag-black-front.png",
+#             "src/assets/images/Products/bag/empty/empty-bag-blue-front.png",
+#             "src/assets/images/Products/bag/empty/empty-bag-gray-front.png",
+#             "src/assets/images/Products/bag/empty/empty-bag-white-front.png"
+#             ]
+# }
+
+{
+    "styleName": "Empty",
+    "productType": "cup",
+    "description": "Your blank canvas awaits. Make it uniquely yours.",
+    "price": 399,
+    "sizes": ["one size"],
+    "colors": ["black", "blue", "gray", "white"],
+    "images": ["src/assets/images/Products/cup/empty/empty-cup-black-front.png",
+            "src/assets/images/Products/cup/empty/empty-cup-blue-front.png",
+            "src/assets/images/Products/cup/empty/empty-cup-gray-front.png",
+            "src/assets/images/Products/cup/empty/empty-cup-white-front.png"
+            ]
+}
