@@ -6,51 +6,6 @@ import { authCookie } from "../../middlewares/authCookie.js";
 
 const router = express.Router();
 
-//Create an order
-router.post("/", async (req, res) => {
-    const { userId, items = [], status = 'pending', total, vat = 7, addressId = '', paymentId = '' } = req.body;
-
-    if (!userId || !status || !vat || !total) {
-        return res.status(400).json({ error: true, message: "The information is not fulfilled" });
-    }
-
-    try {
-        // Step 1: Create the Order object (without items)
-        const order = new Order({
-            userId: new mongoose.Types.ObjectId(userId),
-            items: [], // Initially empty
-            status,
-            total,
-            vat,
-            addressId: addressId ? new mongoose.Types.ObjectId(addressId) : undefined,
-            paymentId: paymentId ? new mongoose.Types.ObjectId(paymentId) : undefined,
-        });
-
-        // Step 2: Save the order to get the _id
-        await order.save();
-
-        // Step 3: Attach the orderId to each item
-        order.items = items.map(item => ({
-            orderId: order._id,  // Attach the order ID
-            productId: new mongoose.Types.ObjectId(item.productId),
-            quantity: item.quantity,
-            unitPrice: item.unitPrice,
-            selectedSize: item.selectedSize,
-            selectedColor: item.selectedColor,
-            selectedImage: item.selectedImage,
-        }));
-
-        // Step 4: Save the updated order with items
-        await order.save();
-
-        return res.status(201).json({ error: false, order, message: "The order is created successfully" });
-
-    } catch (err) {
-        return res.status(500).json({ error: true, message: "Server error", details: err.message });
-    }
-});
-
-
 router.get("/getUserOrders/:userId", async (req,res) => {
     const {userId} = req.params;
 
@@ -135,6 +90,7 @@ router.post("/createOrder", authCookie, async (req, res) => {
             vat,
             address,
             payment,
+            shippingMethod
         });
         return res.status(200).json({ error: false, order });
     } catch (error) {

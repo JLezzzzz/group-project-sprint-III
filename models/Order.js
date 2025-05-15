@@ -42,7 +42,7 @@ const OrderSchema = new Schema({
     addedAt: {type:Date},
   }],
   required: true, default: [] },
-  shippingMethod: { type: String, default: "standard"},
+  shippingMethod: { type: String,},
   status: {type: String, enum: ["Pending", "To be delivered", "On delivering", "Cancelled", "Shipped"], default: "pending",},
   total: { type: Number, default: 0 },
   vat: { type: Number, default: 7 },
@@ -55,6 +55,8 @@ const OrderSchema = new Schema({
     subDistrict: { type: String, required: true },
     city: { type: String, required: true },
     postal: { type: String, required: true },
+    phone: { type: String, required: true },
+    email: { type: String, required: true },
   },
   payment: {
     firstName: {type: String, required: true},

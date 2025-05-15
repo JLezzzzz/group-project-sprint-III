@@ -509,4 +509,40 @@ router.patch("/items/:itemId", async (req, res) => {
   }
 });
 
+
+//Clear all the cart after create an order
+router.patch("/empty/:userId", async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    const cart = await Cart.findOne({ userId });
+    if (!cart) {
+      return res.status(404).json({
+        error: true,
+        message: "Cart not found",
+      });
+    }
+
+    // Clear items and reset total
+    cart.items = [];
+    cart.total = 0;
+    cart.updatedAt = new Date();
+
+    await cart.save();
+
+    return res.status(200).json({
+      error: false,
+      message: "Cart emptied successfully",
+      cart,
+    });
+  } catch (err) {
+    return res.status(500).json({
+      error: true,
+      message: "Server error",
+      details: err.message,
+    });
+  }
+});
+
+
 export default router;
